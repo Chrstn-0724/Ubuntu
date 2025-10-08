@@ -1,0 +1,150 @@
+Ubuntu Command List Practice
+
+vboxuser@ubunpass123:~$ sudo apt update
+[sudo] password for vboxuser: 
+
+Hit:1 http://ph.archive.ubuntu.com/ubuntu noble InRelease
+Hit:2 http://ph.archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:3 http://ph.archive.ubuntu.com/ubuntu noble-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu noble-security InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+65 packages can be upgraded. Run 'apt list --upgradable' to see them.
+
+vboxuser@ubunpass123:~$ sudo adduser admin
+info: Adding user `admin' ...
+info: Selecting UID/GID from range 1000 to 59999 ...
+info: Adding new group `admin' (1001) ...
+info: Adding new user `admin' (1001) with group `admin (1001)' ...
+info: Creating home directory `/home/admin' ...
+info: Copying files from `/etc/skel' ...
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for admin
+Enter the new value, or press ENTER for the default
+	Full Name []: administrator
+	Room Number []: 1
+	Work Phone []: 1
+	Home Phone []: 1
+	Other []: 1
+Is the information correct? [Y/n] y
+info: Adding new user `admin' to supplemental / extra groups `users' ...
+info: Adding user `admin' to group `users' ...
+
+vboxuser@ubunpass123:~$ sudo adduser staff1
+info: Adding user `staff1' ...
+info: Selecting UID/GID from range 1000 to 59999 ...
+info: Adding new group `staff1' (1002) ...
+info: Adding new user `staff1' (1002) with group `staff1 (1002)' ...
+info: Creating home directory `/home/staff1' ...
+info: Copying files from `/etc/skel' ...
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for staff1
+Enter the new value, or press ENTER for the default
+	Full Name []: 2
+	Room Number []: 2
+	Work Phone []: 2
+	Home Phone []: 2
+	Other []: 2
+Is the information correct? [Y/n] y
+info: Adding new user `staff1' to supplemental / extra groups `users' ...
+info: Adding user `staff1' to group `users' ...
+
+vboxuser@ubunpass123:~$ sudo adduser staff2
+info: Adding user `staff2' ...
+info: Selecting UID/GID from range 1000 to 59999 ...
+info: Adding new group `staff2' (1003) ...
+info: Adding new user `staff2' (1003) with group `staff2 (1003)' ...
+info: Creating home directory `/home/staff2' ...
+info: Copying files from `/etc/skel' ...
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for staff2
+Enter the new value, or press ENTER for the default
+	Full Name []: 3
+	Room Number []: 3
+	Work Phone []: 3
+	Home Phone []: 3
+	Other []: 3
+Is the information correct? [Y/n] y
+info: Adding new user `staff2' to supplemental / extra groups `users' ...
+info: Adding user `staff2' to group `users' ...
+
+vboxuser@ubunpass123:~$ sudo adduser staff3
+info: Adding user `staff3' ...
+info: Selecting UID/GID from range 1000 to 59999 ...
+info: Adding new group `staff3' (1004) ...
+info: Adding new user `staff3' (1004) with group `staff3 (1004)' ...
+info: Creating home directory `/home/staff3' ...
+info: Copying files from `/etc/skel' ...
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for staff3
+Enter the new value, or press ENTER for the default
+	Full Name []: 4
+	Room Number []: 4
+	Work Phone []: 4
+	Home Phone []: 4
+	Other []: 4
+Is the information correct? [Y/n] y
+info: Adding new user `staff3' to supplemental / extra groups `users' ...
+info: Adding user `staff3' to group `users' ...
+
+vboxuser@ubunpass123:~$ sudo usermod -aG sudo admin
+
+vboxuser@ubunpass123:~$ groups admin
+
+admin : admin sudo users
+
+vboxuser@ubunpass123:~$ sudo addgroup management
+info: Selecting GID from range 1000 to 59999 ...
+info: Adding group `employees' (GID 1005) ...
+
+vboxuser@ubunpass123:~$ sudo usermod -aG management admin
+
+vboxuser@ubunpass123:~$ sudo usermod -aG management staff1
+
+vboxuser@ubunpass123:~$ sudo usermod -aG management staff2
+
+vboxuser@ubunpass123:~$ sudo usermod -aG management staff3
+
+vboxuser@ubunpass123:~$ su - admin
+Password: 
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+admin@ubunpass123:~$ sudo mkdir /backup
+[sudo] password for admin: 
+
+admin@ubunpass123:~$ sudo chown :sudo /backup
+
+admin@ubunpass123:~$ sudo chmod 770 /backup
+
+admin@ubunpass123:~$ cd /backup
+
+admin@ubunpass123:/backup$ touch system_log.txt
+
+admin@ubunpass123:/backup$ ls
+
+system_log.txt
+
+admin@ubunpass123:/backup$ df -h >> system_log.txt
+
+admin@ubunpass123:/backup$ free -m >> system_log.txt
+
+admin@ubunpass123:/backup$ psaux >> system_log.txt
+
+psaux: command not found
+
+admin@ubunpass123:/backup$ top >> system_log.txt
+
